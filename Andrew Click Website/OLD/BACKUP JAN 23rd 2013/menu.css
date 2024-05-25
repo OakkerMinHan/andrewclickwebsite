@@ -1,0 +1,79 @@
+	#preload { 
+		display: none; 
+}
+
+	.shadowmenu {
+		width:135px;
+		margin-left:0px;
+        	background-color: rgb(68,68,68); /* Needed for IEs */
+		-moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+        	-webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+        	box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+		filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+        	zoom: 1;	
+}
+
+	.shadowmenu .mainnav {
+        	position: relative; /* This protects the inner element from being blurred */
+        	padding: 0px;
+        	background-color: #f4f1ec;
+
+}
+
+	.mainnav {
+  		z-index:2;
+  		left:0px;
+  		height:320px;
+  		width:135px;
+  		background-color:#f4f1ec;
+  		text-align:center;
+
+}
+
+	a:link, a:visited, a:hover { 
+		color: #979390;
+		text-decoration: none;
+	
+} 	
+
+	
+	a:active { 
+		color: #979390;
+		text-decoration: none;
+		font-weight:bold;
+}
+
+
+	div.hr {
+		
+  		border: 0;
+  		width: 124px;
+  		height: 7px;
+		background-image:url('hr1.jpg');
+		background-repeat:no-repeat;
+		background-position:center;
+		padding-left:12px; 		
+
+  
+}
+
+	div.hr hr {
+  		display: none;
+}
+
+	div.hr2 {
+  		border: 0;
+  		width: 124px;
+  		height: 5px;
+		text-align: center;
+  		background-image:url('hr2.jpg');
+		background-repeat:no-repeat;
+		background-position:center;
+		padding-left:12px;
+  
+}
+
+	div.hr2 hr {
+  		display: none;
+}

@@ -1,0 +1,119 @@
+	img#bg {
+		position:fixed;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+} 
+		
+	#contentcontainer {
+		position:relative;
+		z-index:1;
+		margin-left:auto;
+		margin-right:auto;
+		height:660px;
+		width:930px;
+		top:95px;
+} 
+
+	#textbody {
+		position:absolute;
+		left:150px;
+		top:0px;
+		z-index:3;
+		
+} 
+				
+	.ontop {
+		position:absolute;
+		top:30px;
+		left:170px;
+		z-index:4;
+		text-align:left;
+  		text-decoration:none;
+}
+
+	.ontopclientnav {
+		position:absolute;
+		top:45px;
+		left:170px;
+		width:400px;
+		z-index:8;
+		
+}
+/* Services page */
+	.shadow1 {	
+		background-color: rgb(68,68,68); /* Needed for IEs */
+		-moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		-webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+		filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+		zoom: 1;	
+}
+
+	.shadow1 .content {
+		width:740px;
+		position:relative; /* This protects the inner element from being blurred */
+		padding:0px 0px 0px 0px;
+		background-color: #f4f1ec;
+}
+/* Services page */
+
+/* Home page */
+	.shadow2 {	
+		background-color: rgb(68,68,68); /* Needed for IEs */
+		-moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		-webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+		filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+		zoom: 1;	
+}
+
+	.shadow2 .content2 {
+		width:720px;
+		height:320px;
+		position:relative; /* This protects the inner element from being blurred */
+		padding:0px 0px 0px 0px;
+		background-color: #f4f1ec;
+}
+/* End Home page */
+
+/* Bio Page */
+	.shadow3 {	
+		background-color: rgb(68,68,68); /* Needed for IEs */
+		-moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		-webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+		filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+		zoom: 1;	
+}
+
+	.shadow3 .content {
+		width:740px;
+		position:relative; /* This protects the inner element from being blurred */
+		padding:50px 0px 0px 0px;
+		background-color: #f4f1ec;
+}
+/* End Bio Page */
+
+/* Resources page */
+	.shadow4 {	
+		background-color: rgb(68,68,68); /* Needed for IEs */
+		-moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		-webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+		-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+		filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+		zoom: 1;	
+}
+
+	.shadow4 .content {
+		width:740px;
+		position:relative; /* This protects the inner element from being blurred */
+		padding:78px 0px 0px 0px;
+		background-color: #f4f1ec;
+}
+/* End Resources page */

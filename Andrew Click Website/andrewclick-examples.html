@@ -1,0 +1,510 @@
+...
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>Andrew Click Productions</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="Andrew click productions, specializing in all aspects of audio & sound. Audio production, studio production & design. Audio for film, film mixing & layback. Live/remote recording, studio recording, record production, mixing & mastering.">
+	<meta name="keywords" content="telitronics, Summit, summit, Urei, urei, Kelso, kelso, Neumann, neumann, Newman, newman, AKG, akg ,RCA, rca, geffell, Geffell, Micro-Tech, micro-tech, microtech, Control 24, Focusrite, focusrite, andrew click, Andrew Click, Production, production, audio production, record production">
+	<link media="screen" type="text/css" rel="stylesheet" href="page-layout.css" />
+	<link media="screen" type="text/css" rel="stylesheet" href="menu.css" />
+	<link media="screen" type="text/css" rel="stylesheet" href="styles.css" />
+	
+	<style type="text/css">
+    body {
+    background-attachment: fixed;
+    background-color: #FFFFFF;
+    background-image: url(backgrounds/examplesback.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+     
+    margin:0;
+    padding: 0;
+     
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    }
+     
+    @media only all and (max-width: 640px) and (max-height: 426px) {
+    body {
+    background-size: 640px 426px;
+    -moz-background-size: 640px 426px;
+    -webkit-background-size: 640px 426px;
+    }
+    }
+     
+    @media only screen and (orientation: portrait) and (device-width: 320px), (device-width: 768px) {
+    body {
+    -webkit-background-size: auto 100%;
+    }
+    }
+     
+    @media only screen and (orientation: landscape) and (device-width: 320px), (device-width: 768px) {
+    body {
+    -webkit-background-size: 100% auto;
+    }
+    }
+		
+		    img#expando {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    -ms-interpolation-mode: bicubic;
+    }
+     
+    .wide img#expando,
+    .tall img#expando {
+    display: block;
+    }
+     
+    .wide img#expando {
+    height: auto;
+    width: 100%;
+    }
+     
+    .tall img#expando {
+    height: 100%;
+    width: auto;
+    }
+</style>	
+
+
+<script type="text/javascript">
+
+    (function(){
+     
+    var bgImageSize = {
+    width: 640,
+    height: 426
+    };
+     
+    if ((function(){
+    var el = document.createElement('div'),
+    bs = 'backgroundSize',
+    ubs= bs.charAt(0).toUpperCase() + bs.substr(1),
+    props= [bs, 'Webkit' + ubs, 'Moz' + ubs, 'O' + ubs];
+     
+    for ( var i in props ) {
+    if ( el.style[props[i]] !== undefined ) {
+    return true;
+    }
+    }
+    return false;
+    }())) {
+    return;
+    };
+     
+    if ( false /*@cc_on || @_jscript_version < 5.7 @*/ ) {
+    return;
+    }
+
+    var elBody,
+    imageID= 'expando',
+    tallClass= 'tall',
+    wideClass= 'wide',
+    elBgImage, elWrapper, img, url, imgAR,
+     
+    addEvent = function(el, evnt, func) {
+    if (el.addEventListener) {
+    el.addEventListener(evnt, func, false);
+    } else if (el.attachEvent) {
+    return el.attachEvent("on" + evnt, func);
+    } else {
+    el['on' + evnt] = func;
+    }
+    },
+     
+    domLoaded = function(callback) {
+    /* Internet Explorer */
+    /*@cc_on
+    @if (@_win32 || @_win64)
+    document.write('<script id="ieScriptLoad" defer src="//:"><\/script>');
+    document.getElementById('ieScriptLoad').onreadystatechange = function() {
+    if (this.readyState == 'complete') {
+    callback();
+    }
+    };
+    @end @*/
+    /* Mozilla, Chrome, Opera */
+    if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', callback, false);
+    }
+    /* Safari, iCab, Konqueror */
+    if (/KHTML|WebKit|iCab/i.test(navigator.userAgent)) {
+    var DOMLoadTimer = setInterval(function () {
+    if (/loaded|complete/i.test(document.readyState)) {
+    callback();
+    clearInterval(DOMLoadTimer);
+    }
+    }, 10);
+    }
+    },
+     
+    getStyle = function(el, css){
+    var strValue = "";
+    if (document.defaultView && document.defaultView.getComputedStyle){
+    strValue = document.defaultView.getComputedStyle(el, "").getPropertyValue(css);
+    }
+    else if (el.currentStyle){
+    css = css.replace(/\-(\w)/g, function (strMatch, p1){
+    return p1.toUpperCase();
+    });
+    strValue = el.currentStyle[css];
+    }
+    return strValue;
+    },
+     
+    classRegex = function(cls) {
+    return new RegExp('(\\s|^)'+cls+'(\\s|$)');
+    },
+     
+    hasClass = function(el, cls) {
+    return el.className.match(classRegex(cls));
+    },
+     
+    addClass = function(el, cls) {
+    if ( ! hasClass(el, cls)) {
+    el.className += ' ' + cls;
+    }
+    },
+     
+    removeClass = function(el, cls) {
+    if (hasClass(el, cls)) {
+    el.className = el.className.replace(classRegex(cls), '');
+    }
+    },
+     
+    initialize = function() {
+     
+    if (screen.availWidth <= bgImageSize.width && screen.availHeight <= bgImageSize.height) {
+    return;
+    }
+     
+    elBody= document.getElementsByTagName('body')[0];
+     
+    url = getStyle(elBody, 'backgroundImage').replace(/^url\(("|')?|("|')?\);?$/g, '') || false;
+    if (!url || url === "none" || url === "") {
+    return;
+    }
+     
+    imgAR = bgImageSize.width / bgImageSize.height;
+     
+    elBgImage = document.createElement('img');
+    elBgImage.src = url;
+    elBgImage.id = imageID;
+     
+    elWrapper = document.createElement('div');
+    elWrapper.style.overflow= 'hidden';
+    elWrapper.style.width= '100%';
+    elWrapper.style.height= '100%';
+    elWrapper.style.zIndex= '-1';
+     
+    elWrapper.appendChild(elBgImage);
+    elBody.appendChild(elWrapper);
+     
+    elWrapper.style.position= 'fixed';
+    elWrapper.style.top= 0;
+    elWrapper.style.left= 0;
+     
+    addEvent(window, 'resize', resizeAction);
+     
+    resizeAction();
+     
+    },
+     
+    resizeAction = function() {
+    var win = {
+    height: window.innerHeight || document.documentElement.clientHeight,
+    width: window.innerWidth || document.documentElement.clientWidth
+    },
+     
+    winAR = win.width / win.height;
+     
+    if (win.width < bgImageSize.width && win.height < bgImageSize.height) {
+    removeClass(elBody, wideClass);
+    removeClass(elBody, tallClass);
+    } else if (winAR < imgAR) {
+    removeClass(elBody, wideClass);
+    addClass(elBody, tallClass);
+
+    elBgImage.style.left = Math.min(((win.width - bgImageSize.width) / 2), 0);
+    } else if (winAR > imgAR) {
+    addClass(elBody, wideClass);
+    removeClass(elBody, tallClass);
+    elBgImage.style.left = 0;
+    }
+    };
+     
+    domLoaded(initialize);
+     
+    })();
+
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30354936-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+ 
+<body>
+
+<div id="preload">
+   <img src="buttons/button_services_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_bio_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_clients_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_examples_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_resources_02.png" width="1" height="1" border="0" />
+      <img src="buttons/button_equipment_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_contact_02.png" width="1" height="1" border="0" />
+</div>
+<div id="contentcontainer">
+		
+	<div class="shadowmenu">
+		<div class="mainnav">
+
+		<a href="/"><img src="logo1.png" alt="audio production santa fe nm" /></a><br>
+			<div class= "hr"><hr /></div>
+			<a href="recording-studio-services.html">
+			<img src="buttons/button_services_01.png" onmouseover="this.src='buttons/button_services_02.png'" onmouseout="this.src='buttons/button_services_01.png'" border="0"> </a>
+			<div class= "hr"><hr /></div>
+			<a href="audio-engineer-producer.html">
+			<img src="buttons/button_bio_01.png" onmouseover="this.src='buttons/button_bio_02.png'" onmouseout="this.src='buttons/button_bio_01.png'" border="0"></a> 
+			<div class= "hr"><hr /></div>
+			<a href="audio-services-clients.html">
+			<img src="buttons/button_clients_01.png" onmouseover="this.src='buttons/button_clients_02.png'" onmouseout="this.src='buttons/button_clients_01.png'" border="0"></a>
+			<div class= "hr"><hr /></div>
+			<a href="recordings-examples.html">
+			<img src="buttons/button_examples_02.png" onmouseover="this.src='buttons/button_examples_02.png'" onmouseout="this.src='buttons/button_examples_02.png'" border="0"></a> 	 
+			<div class= "hr"><hr /></div>
+			<a href="professional-resources.html">
+			<img src="buttons/button_resources_01.png" onmouseover="this.src='buttons/button_resources_02.png'" onmouseout="this.src='buttons/button_resources_01.png'" border="0"></a>
+            <div class= "hr"><hr /></div>
+            		<a href="studio-equipment.html">
+			<img src="buttons/button_equipment_01.png" onmouseover="this.src='buttons/button_equipment_02.png'" onmouseout="this.src='buttons/button_equipment_01.png'" border="0"></a>
+			<div class= "hr"><hr /></div>
+			<a href="contact.html">
+			<img src="buttons/button_contact_01.png" onmouseover="this.src='buttons/button_contact_02.png'" onmouseout="this.src='buttons/button_contact_01.png'" border="0"></a> 	
+			<br>
+		</div>
+	</div>
+
+	<div class="ontop"><img src="headings/headline_examples.jpg" border="0" /> <img src="topline.jpg" width="704" height="7" border="0"/>
+	</div>
+	 
+	<div id="textbody">
+		<div class="shadow3">
+			<div class="content">
+
+
+<div style=" text-align: left; text-indent: 0px; padding: 0px 0px 0px 20px; margin: 0px 0px 0px -20px; font-family: Helvetica; font-size: 11pt; color: #000000; font-smooth: always;"><table width="100%" border="0" cellpadding="2" cellspacing="20" style="border-width: 0px; background-color: #f4f1ec;">
+<tr valign="top">
+<td>
+<b>2bers<br>
+Ride It<br></b>
+Hip Hop<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="2bers" name="2bers">
+<param name="movie" value="/mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/2bers_Ride It_Hip_Hop.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td>
+  <b>Dnumbers<br>
+    Ghost Talk<br></b>
+  Live Electronica<br>
+  <object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="Dnumbers" name="Dnumbers">
+  <param name="movie" value="mp3/dewplayer.swf" />
+  <param name="flashvars" value="mp3=mp3/Dnumbers_Ghost Talk_Live Electronica.mp3" />
+  <param name="wmode" value="transparent" />
+  </object>
+</td>
+<td><strong>GoGoSnapRadio<br />
+  All Of Us Were There</strong><br />
+  Folk<br />
+  <object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+    <param name="movie" value="mp3/dewplayer.swf" />
+    <param name="flashvars" value="mp3=mp3/AllOfUsWereThere.mp3" />
+    <param name="wmode" value="transparent" />
+</object></td>
+</tr>
+<tr valign="top">
+<td>
+<b>Annette Cantor<br>
+Ave Generosa<br></b>
+New Age<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Annette_Cantor_Ave Generosa_New Age.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td>
+<b>Hillary Smith<br>
+Love Come Down<br></b>
+Soul<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Hillary Smith_Love Come Down_Soul.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td>
+<b>Paul Koenig<br>
+Madiline<br></b>
+Country<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Paul Koenig_Madiline_Country.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Bert Dalton<br>
+Never Come<br></b>
+Jazz<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Bert_Dalton_Never_Come_Jazz.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td>
+<b>Jadoo<br>
+Onajon Remix<br></b>
+World<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Jadoo_Onajon Remix_World.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td>
+<b>Paul Koenig<br>
+Till Your Mine<br></b>
+Country<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Paul Koenig_Till Your Mine_Country.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Cedar Hill Refugees<br>
+Keys to the Kingdom<br></b>
+Folk<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Cedar_Hill Refugees_Keys_to_the_Kingdom_Folk.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td>
+<b>Jenny Gamble<br>
+Somewhere In The Middle<br></b>
+Folk<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Jenny Gamble_Somewhere In The Middle_Folk.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td>
+<b>Roses Pawn Shop<br>
+Funeral Pire<br></b>
+Bluegrass<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Roses Pawn Shop_Funeral Pire_Bluegrass.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Cedar Hill Refugees<br>
+Wife of Ushers Well<br></b>Folk<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Cedar Hill Refugees_Wife of Ushers Well_Bluegrass.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td>
+<b>Key Francis<br>
+Ancient Love<br></b>
+Live Recording<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Key Francis_Ancient Love_Live Recording.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td><b>Cali Shaw<br />
+Gunslinger<br />
+</b> Alternative Rock
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer3" name="dewplayer">
+  <param name="movie" value="mp3/dewplayer.swf" />
+  <param name="flashvars" value="mp3=mp3/Gunslinger.mp3" />
+  <param name="wmode" value="transparent" />
+</object></td>
+</tr>
+<tr valign="top">
+<td>
+<b>Daniel Ward<br>
+Reverance<br></b>
+Flamenco<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Daniel Ward_Reverance_Flaminco.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td>
+<b>Lisa<br>
+I Have A Dream<br></b>
+Jazz<br>
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+<param name="movie" value="mp3/dewplayer.swf" />
+<param name="flashvars" value="mp3=mp3/Lisa_I Have A Dream_Jazz.mp3" />
+<param name="wmode" value="transparent" />
+</object>
+</td>
+<td><b>Todd and the Fox<br /> 
+  Red Fox
+<br />
+</b> Alternative Bluegrass
+<object type="application/x-shockwave-flash" data="mp3/dewplayer.swf" width="200" height="20" id="dewplayer4" name="dewplayer">
+  <param name="movie" value="mp3/dewplayer.swf" />
+  <param name="flashvars" value="mp3=mp3/RedFox.mp3" />
+  <param name="wmode" value="transparent" />
+</object></td>
+</tr>
+</table>
+</div>
+</p>
+		
+			</div>
+		</div>
+	</div>
+
+</div>
+ 
+</body>
+</html>

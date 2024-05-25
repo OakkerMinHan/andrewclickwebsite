@@ -1,0 +1,331 @@
+...
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>Music and Audio Mastering | Andrew Click Productions - Santa Fe NM</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="World-class mastering services and a wide range of vintage, traditional, and state-of-the-art equipment for audio mastering and sound restoration in Santa Fe, NM.">
+	
+	<link media="screen" type="text/css" rel="stylesheet" href="page-layout.css" />
+	<link media="screen" type="text/css" rel="stylesheet" href="menu.css" />
+	<link media="screen" type="text/css" rel="stylesheet" href="styles.css" />
+
+<style type="text/css">
+    body {
+    background-attachment: fixed;
+    background-color: #FFFFFF;
+    background-image: url(backgrounds/bioback.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+     
+    margin:0;
+    padding: 0;
+     
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    }
+     
+    @media only all and (max-width: 640px) and (max-height: 426px) {
+    body {
+    background-size: 640px 426px;
+    -moz-background-size: 640px 426px;
+    -webkit-background-size: 640px 426px;
+    }
+    }
+     
+    @media only screen and (orientation: portrait) and (device-width: 320px), (device-width: 768px) {
+    body {
+    -webkit-background-size: auto 100%;
+    }
+    }
+     
+    @media only screen and (orientation: landscape) and (device-width: 320px), (device-width: 768px) {
+    body {
+    -webkit-background-size: 100% auto;
+    }
+    }
+		
+		    img#expando {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    -ms-interpolation-mode: bicubic;
+    }
+     
+    .wide img#expando,
+    .tall img#expando {
+    display: block;
+    }
+     
+    .wide img#expando {
+    height: auto;
+    width: 100%;
+    }
+     
+    .tall img#expando {
+    height: 100%;
+    width: auto;
+    }
+</style>	
+
+
+<script type="text/javascript">
+
+    (function(){
+     
+    var bgImageSize = {
+    width: 640,
+    height: 426
+    };
+     
+    if ((function(){
+    var el = document.createElement('div'),
+    bs = 'backgroundSize',
+    ubs= bs.charAt(0).toUpperCase() + bs.substr(1),
+    props= [bs, 'Webkit' + ubs, 'Moz' + ubs, 'O' + ubs];
+     
+    for ( var i in props ) {
+    if ( el.style[props[i]] !== undefined ) {
+    return true;
+    }
+    }
+    return false;
+    }())) {
+    return;
+    };
+     
+    if ( false /*@cc_on || @_jscript_version < 5.7 @*/ ) {
+    return;
+    }
+
+    var elBody,
+    imageID= 'expando',
+    tallClass= 'tall',
+    wideClass= 'wide',
+    elBgImage, elWrapper, img, url, imgAR,
+     
+    addEvent = function(el, evnt, func) {
+    if (el.addEventListener) {
+    el.addEventListener(evnt, func, false);
+    } else if (el.attachEvent) {
+    return el.attachEvent("on" + evnt, func);
+    } else {
+    el['on' + evnt] = func;
+    }
+    },
+     
+    domLoaded = function(callback) {
+    /* Internet Explorer */
+    /*@cc_on
+    @if (@_win32 || @_win64)
+    document.write('<script id="ieScriptLoad" defer src="//:"><\/script>');
+    document.getElementById('ieScriptLoad').onreadystatechange = function() {
+    if (this.readyState == 'complete') {
+    callback();
+    }
+    };
+    @end @*/
+    /* Mozilla, Chrome, Opera */
+    if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', callback, false);
+    }
+    /* Safari, iCab, Konqueror */
+    if (/KHTML|WebKit|iCab/i.test(navigator.userAgent)) {
+    var DOMLoadTimer = setInterval(function () {
+    if (/loaded|complete/i.test(document.readyState)) {
+    callback();
+    clearInterval(DOMLoadTimer);
+    }
+    }, 10);
+    }
+    },
+     
+    getStyle = function(el, css){
+    var strValue = "";
+    if (document.defaultView && document.defaultView.getComputedStyle){
+    strValue = document.defaultView.getComputedStyle(el, "").getPropertyValue(css);
+    }
+    else if (el.currentStyle){
+    css = css.replace(/\-(\w)/g, function (strMatch, p1){
+    return p1.toUpperCase();
+    });
+    strValue = el.currentStyle[css];
+    }
+    return strValue;
+    },
+     
+    classRegex = function(cls) {
+    return new RegExp('(\\s|^)'+cls+'(\\s|$)');
+    },
+     
+    hasClass = function(el, cls) {
+    return el.className.match(classRegex(cls));
+    },
+     
+    addClass = function(el, cls) {
+    if ( ! hasClass(el, cls)) {
+    el.className += ' ' + cls;
+    }
+    },
+     
+    removeClass = function(el, cls) {
+    if (hasClass(el, cls)) {
+    el.className = el.className.replace(classRegex(cls), '');
+    }
+    },
+     
+    initialize = function() {
+     
+    if (screen.availWidth <= bgImageSize.width && screen.availHeight <= bgImageSize.height) {
+    return;
+    }
+     
+    elBody= document.getElementsByTagName('body')[0];
+     
+    url = getStyle(elBody, 'backgroundImage').replace(/^url\(("|')?|("|')?\);?$/g, '') || false;
+    if (!url || url === "none" || url === "") {
+    return;
+    }
+     
+    imgAR = bgImageSize.width / bgImageSize.height;
+     
+    elBgImage = document.createElement('img');
+    elBgImage.src = url;
+    elBgImage.id = imageID;
+     
+    elWrapper = document.createElement('div');
+    elWrapper.style.overflow= 'hidden';
+    elWrapper.style.width= '100%';
+    elWrapper.style.height= '100%';
+    elWrapper.style.zIndex= '-1';
+     
+    elWrapper.appendChild(elBgImage);
+    elBody.appendChild(elWrapper);
+     
+    elWrapper.style.position= 'fixed';
+    elWrapper.style.top= 0;
+    elWrapper.style.left= 0;
+     
+    addEvent(window, 'resize', resizeAction);
+     
+    resizeAction();
+     
+    },
+     
+    resizeAction = function() {
+    var win = {
+    height: window.innerHeight || document.documentElement.clientHeight,
+    width: window.innerWidth || document.documentElement.clientWidth
+    },
+     
+    winAR = win.width / win.height;
+     
+    if (win.width < bgImageSize.width && win.height < bgImageSize.height) {
+    removeClass(elBody, wideClass);
+    removeClass(elBody, tallClass);
+    } else if (winAR < imgAR) {
+    removeClass(elBody, wideClass);
+    addClass(elBody, tallClass);
+
+    elBgImage.style.left = Math.min(((win.width - bgImageSize.width) / 2), 0);
+    } else if (winAR > imgAR) {
+    addClass(elBody, wideClass);
+    removeClass(elBody, tallClass);
+    elBgImage.style.left = 0;
+    }
+    };
+     
+    domLoaded(initialize);
+     
+    })();
+
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30354936-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body>
+
+<div id="preload">
+   <img src="buttons/button_services_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_bio_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_clients_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_examples_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_resources_02.png" width="1" height="1" border="0" />
+      <img src="buttons/button_equipment_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_contact_02.png" width="1" height="1" border="0" />
+</div>
+<div id="contentcontainer">
+		
+	<div class="shadowmenu">
+		<div class="mainnav">
+
+		<a href="/"><img src="logo1.png" alt="audio production santa fe nm" /></a><br>
+			<div class= "hr"><hr /></div>
+			<a href="recording-studio-services.html">
+			<img src="buttons/button_services_02.png" onmouseover="this.src='buttons/button_services_02.png'" onmouseout="this.src='buttons/button_services_02.png'" border="0"> </a>
+			<div class= "hr"><hr /></div>
+			<a href="audio-engineer-producer.html">
+			<img src="buttons/button_bio_01.png" onmouseover="this.src='buttons/button_bio_02.png'" onmouseout="this.src='buttons/button_bio_01.png'" border="0"></a> 
+			<div class= "hr"><hr /></div>
+			<a href="audio-services-clients.html">
+			<img src="buttons/button_clients_01.png" onmouseover="this.src='buttons/button_clients_02.png'" onmouseout="this.src='buttons/button_clients_01.png'" border="0"></a>
+			<div class= "hr"><hr /></div>
+			<a href="recordings-examples.html">
+			<img src="buttons/button_examples_01.png" onmouseover="this.src='buttons/button_examples_02.png'" onmouseout="this.src='buttons/button_examples_01.png'" border="0"></a> 	 
+			<div class= "hr"><hr /></div>
+			<a href="professional-resources.html">
+			<img src="buttons/button_resources_01.png" onmouseover="this.src='buttons/button_resources_02.png'" onmouseout="this.src='buttons/button_resources_01.png'" border="0"></a>
+            <div class= "hr"><hr /></div>
+            		<a href="studio-equipment.html">
+			<img src="buttons/button_equipment_01.png" onmouseover="this.src='buttons/button_equipment_02.png'" onmouseout="this.src='buttons/button_equipment_01.png'" border="0"></a>
+			<div class= "hr"><hr /></div>
+			<a href="contact.html">
+			<img src="buttons/button_contact_01.png" onmouseover="this.src='buttons/button_contact_02.png'" onmouseout="this.src='buttons/button_contact_01.png'" border="0"></a> 	
+			<br>
+		</div>
+	</div>
+
+	<div class="ontop"><img src="headings/headline_music_audio_mastering_services.jpg"  border="0" /><img src="topline.jpg"  align="absmiddle" width="700" />
+	</div>
+	 
+	<div id="textbody">
+		<div class="shadow3">
+			<div class="content"><br>
+	<p class="main">
+		<strong>Music and Audio Mastering Services</strong>		</p>
+	<p class="main">Andrew Click Productions is most renowned for its world-class and award-winning mastering services. Andrew truly loves mastering records &amp; digital audio alike, it shows every time in his final product.</p>
+	<p class="main">His work as a mastering engineer is recognized as the best in the industry and is heard all across the world.</p>
+	<p class="main">Mastering is the final stage in the production process and ensures that the music fits together seamlessly and that it is presented with the best possible sound. It involves editing and compiling the required mixes and tracks in production order, cleaning the audio to remove any unwanted blemishes or corruptions, polishing the mixed sound with equalization, compression and other outboard processing and then producing the final master. The combination of our award-winning engineers, custom acoustic treatments and our unrivaled range of vintage, traditional and state-of-the-art equipment ensure that we are world leaders in the fields of audio mastering and sound restoration.</p>
+	<p class="main">We can master to enhance both old and new recordings from any format:  analogue tape, digital master tape or audio file. We have a stereo mastering suite for creating a finished audio master.</p>
+	<p class="main">We welcome clients to attend the mastering session and work on a one-to-one basis with our specialist mastering engineers. Alternatively, we offer a tailor-made virtual service for global clients through our Andrew Click Productions Online Mastering service.	</p>
+	<p class="main">Andrew has been a linchpin in thousands of mastering sessions &amp; countless award winning projects. Colleagues and industry professionals consistently appreciate his contribution as a mastering engineer and he has been honored time and time again for it's transparency &amp; fidelity.<br />
+	 
+	<br><br>
+	<a href="/recording-studio-services.html">Studio Services</a> &nbsp; <a href="/audio-recording-mixing.html">Recording/Mixing</a> &nbsp; <a href="/audio-post-production.html">Audio Post-Production</a> &nbsp; <a href="/audio-for-video-adr.html">Audio for Video/ADR</a> &nbsp; <a href="/sound-design.html">Sound Design</a>
+          <br /> <br />
+          </p>
+			</div>
+		</div>
+	</div>
+
+</div>
+ 
+</body>
+
+</html>

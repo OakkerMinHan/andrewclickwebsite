@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>Andrew Click Productions</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="Andrew click productions, specializing in all aspects of audio & sound. Audio production, studio production & design. Audio for film, film mixing & layback. Live/remote recording, studio recording, record production, mixing & mastering.">
+	<meta name="keywords" content="Record Production, Post-production, Post-Production,post production, Post Production, post-production, Recording Studio, Recordingstudio, recording studio, recordingstudio, HDMixing, HD Mixing, hd mixing">
+	<link media="screen" type="text/css" rel="stylesheet" href="page-layout.css" />
+	<link media="screen" type="text/css" rel="stylesheet" href="menu.css" />
+	<link media="screen" type="text/css" rel="stylesheet" href="styles.css" />
+
+<style type="text/css">
+    body {
+    background-attachment: fixed;
+    background-color: #FFFFFF;
+    background-image: url(backgrounds/contactback.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+     
+    margin:0;
+    padding: 0;
+     
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    }
+     
+    @media only all and (max-width: 640px) and (max-height: 426px) {
+    body {
+    background-size: 640px 426px;
+    -moz-background-size: 640px 426px;
+    -webkit-background-size: 640px 426px;
+    }
+    }
+     
+    @media only screen and (orientation: portrait) and (device-width: 320px), (device-width: 768px) {
+    body {
+    -webkit-background-size: auto 100%;
+    }
+    }
+     
+    @media only screen and (orientation: landscape) and (device-width: 320px), (device-width: 768px) {
+    body {
+    -webkit-background-size: 100% auto;
+    }
+    }
+		
+		    img#expando {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    -ms-interpolation-mode: bicubic;
+    }
+     
+    .wide img#expando,
+    .tall img#expando {
+    display: block;
+    }
+     
+    .wide img#expando {
+    height: auto;
+    width: 100%;
+    }
+     
+    .tall img#expando {
+    height: 100%;
+    width: auto;
+    }
+</style>	
+
+
+<script type="text/javascript">
+
+    (function(){
+     
+    var bgImageSize = {
+    width: 640,
+    height: 426
+    };
+     
+    if ((function(){
+    var el = document.createElement('div'),
+    bs = 'backgroundSize',
+    ubs= bs.charAt(0).toUpperCase() + bs.substr(1),
+    props= [bs, 'Webkit' + ubs, 'Moz' + ubs, 'O' + ubs];
+     
+    for ( var i in props ) {
+    if ( el.style[props[i]] !== undefined ) {
+    return true;
+    }
+    }
+    return false;
+    }())) {
+    return;
+    };
+     
+    if ( false /*@cc_on || @_jscript_version < 5.7 @*/ ) {
+    return;
+    }
+
+    var elBody,
+    imageID= 'expando',
+    tallClass= 'tall',
+    wideClass= 'wide',
+    elBgImage, elWrapper, img, url, imgAR,
+     
+    addEvent = function(el, evnt, func) {
+    if (el.addEventListener) {
+    el.addEventListener(evnt, func, false);
+    } else if (el.attachEvent) {
+    return el.attachEvent("on" + evnt, func);
+    } else {
+    el['on' + evnt] = func;
+    }
+    },
+     
+    domLoaded = function(callback) {
+    /* Internet Explorer */
+    /*@cc_on
+    @if (@_win32 || @_win64)
+    document.write('<script id="ieScriptLoad" defer src="//:"><\/script>');
+    document.getElementById('ieScriptLoad').onreadystatechange = function() {
+    if (this.readyState == 'complete') {
+    callback();
+    }
+    };
+    @end @*/
+    /* Mozilla, Chrome, Opera */
+    if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', callback, false);
+    }
+    /* Safari, iCab, Konqueror */
+    if (/KHTML|WebKit|iCab/i.test(navigator.userAgent)) {
+    var DOMLoadTimer = setInterval(function () {
+    if (/loaded|complete/i.test(document.readyState)) {
+    callback();
+    clearInterval(DOMLoadTimer);
+    }
+    }, 10);
+    }
+    },
+     
+    getStyle = function(el, css){
+    var strValue = "";
+    if (document.defaultView && document.defaultView.getComputedStyle){
+    strValue = document.defaultView.getComputedStyle(el, "").getPropertyValue(css);
+    }
+    else if (el.currentStyle){
+    css = css.replace(/\-(\w)/g, function (strMatch, p1){
+    return p1.toUpperCase();
+    });
+    strValue = el.currentStyle[css];
+    }
+    return strValue;
+    },
+     
+    classRegex = function(cls) {
+    return new RegExp('(\\s|^)'+cls+'(\\s|$)');
+    },
+     
+    hasClass = function(el, cls) {
+    return el.className.match(classRegex(cls));
+    },
+     
+    addClass = function(el, cls) {
+    if ( ! hasClass(el, cls)) {
+    el.className += ' ' + cls;
+    }
+    },
+     
+    removeClass = function(el, cls) {
+    if (hasClass(el, cls)) {
+    el.className = el.className.replace(classRegex(cls), '');
+    }
+    },
+     
+    initialize = function() {
+     
+    if (screen.availWidth <= bgImageSize.width && screen.availHeight <= bgImageSize.height) {
+    return;
+    }
+     
+    elBody= document.getElementsByTagName('body')[0];
+     
+    url = getStyle(elBody, 'backgroundImage').replace(/^url\(("|')?|("|')?\);?$/g, '') || false;
+    if (!url || url === "none" || url === "") {
+    return;
+    }
+     
+    imgAR = bgImageSize.width / bgImageSize.height;
+     
+    elBgImage = document.createElement('img');
+    elBgImage.src = url;
+    elBgImage.id = imageID;
+     
+    elWrapper = document.createElement('div');
+    elWrapper.style.overflow= 'hidden';
+    elWrapper.style.width= '100%';
+    elWrapper.style.height= '100%';
+    elWrapper.style.zIndex= '-1';
+     
+    elWrapper.appendChild(elBgImage);
+    elBody.appendChild(elWrapper);
+     
+    elWrapper.style.position= 'fixed';
+    elWrapper.style.top= 0;
+    elWrapper.style.left= 0;
+     
+    addEvent(window, 'resize', resizeAction);
+     
+    resizeAction();
+     
+    },
+     
+    resizeAction = function() {
+    var win = {
+    height: window.innerHeight || document.documentElement.clientHeight,
+    width: window.innerWidth || document.documentElement.clientWidth
+    },
+     
+    winAR = win.width / win.height;
+     
+    if (win.width < bgImageSize.width && win.height < bgImageSize.height) {
+    removeClass(elBody, wideClass);
+    removeClass(elBody, tallClass);
+    } else if (winAR < imgAR) {
+    removeClass(elBody, wideClass);
+    addClass(elBody, tallClass);
+
+    elBgImage.style.left = Math.min(((win.width - bgImageSize.width) / 2), 0);
+    } else if (winAR > imgAR) {
+    addClass(elBody, wideClass);
+    removeClass(elBody, tallClass);
+    elBgImage.style.left = 0;
+    }
+    };
+     
+    domLoaded(initialize);
+     
+    })();
+
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30354936-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+ 
+<body>
+
+<div id="preload">
+   <img src="buttons/button_services_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_bio_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_clients_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_examples_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_resources_02.png" width="1" height="1" border="0" />
+   <img src="buttons/button_contact_02.png" width="1" height="1" border="0" />
+</div>
+<div id="contentcontainer">
+		
+	<div class="shadowmenu">
+		<div class="mainnav"><a href="index.html"><img src="logo1.png" border="0" alt="Andrew Click Productions Logo" /></a><br>
+			<div class= "hr"><hr /></div>
+			<a href="andrewclick-services.html">
+			<img src="buttons/button_services_01.png" onmouseover="this.src='buttons/button_services_02.png'" onmouseout="this.src='buttons/button_services_01.png'" border="0"> </a>
+			<div class= "hr"><hr /></div>
+			<a href="andrewclick-bio.html">
+			<img src="buttons/button_bio_01.png" onmouseover="this.src='buttons/button_bio_02.png'" onmouseout="this.src='buttons/button_bio_01.png'" border="0"></a> 
+			<div class= "hr"><hr /></div>
+			<a href="andrewclick-clients.html">
+			<img src="buttons/button_clients_01.png" onmouseover="this.src='buttons/button_clients_02.png'" onmouseout="this.src='buttons/button_clients_01.png'" border="0"></a>
+			<div class= "hr"><hr /></div>
+			<a href="andrewclick-examples.html">
+			<img src="buttons/button_examples_01.png" onmouseover="this.src='buttons/button_examples_02.png'" onmouseout="this.src='buttons/button_examples_01.png'" border="0"></a> 	 
+			<div class= "hr2"><hr /></div>
+			<a href="andrewclick-resources.html">
+			<img src="buttons/button_resources_01.png" onmouseover="this.src='buttons/button_resources_02.png'" onmouseout="this.src='buttons/button_resources_01.png'" border="0"></a>
+			<div class= "hr"><hr /></div>
+			<a href="andrewclick-contact.html">
+			<img src="buttons/button_contact_02.png" onmouseover="this.src='buttons/button_contact_02.png'" onmouseout="this.src='buttons/button_contact_02.png'" border="0"></a> 	
+			<br>
+		</div>
+	</div>
+
+	<div class="ontop"><img src="headings/headline_contact.jpg" border="0" /> <img src="topline.jpg" width="700" height="7" border="0"/>
+	</div>
+	 
+	<div id="textbody">
+		<div class="shadow4">
+			<div class="content">
+
+			<img src="content/contact_content.jpg" width="315" height="228" border="0" vspace="5" hspace="20" USEMAP="#MapContact"  />
+			<MAP NAME="MapContact">
+			<AREA SHAPE="rect" ALT="" COORDS="0,117,278,155" HREF="mailto:%69%6e%66%6f%40%61%6e%64%72%65%77%63%6c%69%63%6b%2e%63%6f%6d">
+			</MAP>
+		
+			</div>
+		</div>
+	</div>
+
+</div>
+ 
+</body>
+</html>
